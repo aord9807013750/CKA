@@ -13,7 +13,7 @@ stages {
   }
   stage('Deploy') {
     steps {
- sh 'kubectl create -f deployment-definition.yml'
+ sh ' kubectl version --short'
     }
   }
 }
