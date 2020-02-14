@@ -13,7 +13,7 @@ stages {
   }
   stage('Deploy') {
     kubernetesDeploy {
-      configs: "myapp-deployment.yaml"
+      configs: "deployment-definition.yaml"
       kubeconfigId: "kubernetes"   
     }
   }
