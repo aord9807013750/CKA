@@ -15,8 +15,8 @@ spec:
                 type: front-end
         spec:
                 containers:
-                 - name: nginx-container
-                   image: nginx
+                 - name: gauravaord
+                   image: gaurav1983/gaurav:latest
                  
     replicas: 3
     selector:
