@@ -12,10 +12,7 @@ stages {
     }
   }
   stage('Deploy') {
-    steps {
-      configs: "deployment-definition.yaml"
-      kubeconfigId: "kubernetes"   
-    }
+ sh 'kubectl apply -f deployment-definition.yaml'
   }
 }
 }
