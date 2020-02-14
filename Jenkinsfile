@@ -12,8 +12,9 @@ stages {
     }
   }
   stage('Deploy') {
-    steps {
-      sh 'echo "This is my Deploy step"'
+    kubernetesDeploy {
+      configs: "myapp-deployment.yaml"
+      kubeconfigId: "kubernetes"   
     }
   }
 }
