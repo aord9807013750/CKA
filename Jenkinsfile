@@ -1,20 +1,8 @@
-pipeline{
-agent any
-stages {
-  stage('Build') {
-    steps {
-      sh 'echo "This is my first step"'
+node{
+    stage("Git Clone"){
+    git credentialsId: 'PASS_GITHUB', url: 'https://github.com/aord9807013750/CKA.git'
     }
+  stage("wow"){
+  sh "kubectl get nods"
   }
-  stage('Test') {
-  steps{
-      sh 'echo "This is my Test step"'
-    }
-  }
-  stage('Deploy') {
-    steps {
- sh ' kubectl version --short'
-    }
-  }
-}
 }
