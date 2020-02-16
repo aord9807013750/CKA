@@ -15,8 +15,8 @@ spec:
                 type: front-end
         spec:
                 containers:
-                 - name: gauravaord
-                   image: gaurav1983/gaurav:1.1.6
+                 - name: myappjenkins
+                   image: nginx:1.17.8
                  
     replicas: 3
     selector:
