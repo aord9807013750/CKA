@@ -16,7 +16,7 @@ spec:
         spec:
                 containers:
                  - name: gauravaord
-                   image: gaurav1983/gaurav:latest
+                   image: gaurav1983/gaurav:1.1.4
                  
     replicas: 3
     selector:
