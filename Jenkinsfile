@@ -2,7 +2,7 @@ pipeline {
   environment {
     registry = "gaurav1983/gaurav"
     registryCredential = 'DOCKER_HUB'
-  dockerImage = docker.build registry + ":$BUILD_NUMBER"   
+  dockerImage = docker.build registry + "1.1.4"   
   }
   agent any
   stages {
