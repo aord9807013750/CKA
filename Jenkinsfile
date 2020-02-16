@@ -20,11 +20,8 @@ pipeline {
     }
     stage('Deploy Image') {
       steps{
-        script {
-          docker.withRegistry( '', registryCredential ) {
-            dockerImage.push()
-          }
-        }
+        sh 'docker login -u gaurav1983 -p Netgenius12345'
+       sh 'docker push gaurav1983/gaurav:1.1.4'
       }
     }
   }
