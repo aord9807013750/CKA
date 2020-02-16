@@ -1,8 +1,21 @@
-node{
-    stage("Git Clone"){
-    git credentialsId: 'PASS_GITHUB', url: 'https://github.com/aord9807013750/CKA.git'
+pipeline {
+  environment {
+    registry = "gaurav1983/gaurav"
+    registryCredential = ‘DOCKER_HUB’
+  }
+  agent any
+  stages {
+    stage('Cloning Git') {
+      steps {
+        git 'https://github.com/aord9807013750/CKA.git'
+      }
     }
-  stage("wow"){
-  sh "docker build -t gaurav1983/gaurav:1.1.5 .
+    stage('Building image') {
+      steps{
+        script {
+          docker.build registry + ":1.1.4"
+        }
+      }
+    }
   }
 }
