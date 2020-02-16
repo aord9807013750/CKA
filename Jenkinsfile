@@ -2,6 +2,7 @@ pipeline {
   environment {
     registry = "gaurav1983/gaurav"
     registryCredential = 'DOCKER_HUB'
+     dockerImage = ''
   }
   agent any
   stages {
@@ -14,6 +15,15 @@ pipeline {
       steps{
         script {
           docker.build registry + ":1.1.4"
+        }
+      }
+    }
+    stage('Deploy Image') {
+      steps{
+        script {
+          docker.withRegistry( '', registryCredential ) {
+            dockerImage.push()
+          }
         }
       }
     }
