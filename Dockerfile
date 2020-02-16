@@ -1,7 +1,7 @@
-FROM ubuntu
+FROM centos:7
 MAINTAINER Aord
-RUN apt-get update
-RUN apt-get install -y nginx
-COPY index.html /usr/share/nginx/html/
-ENTRYPOINT [“/usr/sbin/nginx”,”-g”,”daemon off;”]
+RUN yum update
+RUN yum install -y httpd
+RUN systemctl start httpd
+COPY index.html /var/www/
 EXPOSE 8081
