@@ -21,9 +21,16 @@ pipeline {
     stage('Deploy Image') {
       steps{
         sh 'docker login -u gaurav1983 -p Netgenius12345'
-       sh 'docker push gaurav1983/gaurav:1.1.4'
-        sh 'kubectl get pods'
-      }
+        sh 'docker push gaurav1983/gaurav:1.1.4'
+        }
     }
+    stage('Deploy on kubernetes') {
+            steps {
+                kubernetesDeploy(
+                    kubeconfigId: 'KUBE_CONFIG',
+                    configs: 'deployment-definition.yml',
+                    )
+            }
+        }
   }
 }
