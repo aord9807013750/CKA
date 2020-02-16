@@ -22,6 +22,7 @@ pipeline {
       steps{
         sh 'docker login -u gaurav1983 -p Netgenius12345'
        sh 'docker push gaurav1983/gaurav:1.1.4'
+        sh 'kubectl get pods'
       }
     }
   }
