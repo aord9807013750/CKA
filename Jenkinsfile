@@ -14,14 +14,14 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-          docker.build registry + ":1.1.5"
+          docker.build registry + ":1.1.6"
         }
       }
     }
     stage('Deploy Image') {
       steps{
         sh 'docker login -u gaurav1983 -p Netgenius12345'
-        sh 'docker push gaurav1983/gaurav:1.1.5'
+        sh 'docker push gaurav1983/gaurav:1.1.6'
         }
     }
     stage('Deploy on kubernetes') {
