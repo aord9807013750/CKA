@@ -17,6 +17,11 @@ spec:
                 containers:
                  - name: myappjenkins
                    image: nginx:1.17.8
+                   ports:
+                      - port: 80
+                         targetPort: 80
+                   type: LoadBalancer
+
                  
     replicas: 3
     selector:
